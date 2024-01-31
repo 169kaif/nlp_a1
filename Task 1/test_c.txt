@@ -1,0 +1,1 @@
+Natural language processing is a field of artificial intelligence that focuses on the interaction between computers and humans using natural language It involves the development of algorithms and models to enable computers to understand interpret and generate human-like language BPE or Byte Pair Encoding is a popular technique in this domain

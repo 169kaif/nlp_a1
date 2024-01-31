@@ -1,0 +1,2 @@
+Test sample 1 Naturallanguage processing techniques play a crucial role in modern AI applications
+Test sample 2 Byte Pair Encoding is effective in handling a wide range of languages and text data
