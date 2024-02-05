@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report
+
 # Anna's code.. 
 class BigramLM:
     def get_tokens(self, seq):
@@ -117,8 +118,6 @@ bgram = load()
 
 
 # Part-4 Sample Generation and testing
-
-
 emotions_list = ['sadness', 'joy', 'love', 'angry', 'fear', 'surprise']
 os.makedirs('Sentence_samples', exist_ok=True)
 
@@ -146,13 +145,14 @@ for emotion in emotions_list:
 vectorized = TfidfVectorizer()
 X_original = vectorized.fit_transform(corpus)
 X_generated = vectorized.transform(generated_samples)
+# print(X_generated)
 
 # Data splitting and SVC training
 X_train, X_val, y_train, y_val = train_test_split(X_generated, labels,test_size=0.2)
 svc = SVC()
 
 # Grid-CV
-parameters = {'C': [0.1, 1, 10], 'gamma': [0.001, 0.01, 0.1, 1]}
+parameters = {'C': [0.1, 1, 10, 100], 'gamma': [0.1, 1, 10, 100], 'kernel': ['linear', 'rbf', 'poly'],'degree':[1,2,3,4]}
 grid_search = GridSearchCV(svc, parameters)
 grid_search.fit(X_train, y_train)
 print("Best Parameters:", grid_search.best_params_)
